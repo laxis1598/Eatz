@@ -1,0 +1,70 @@
+<div class="container">
+    <h2 class="your-orders">Your Orders</h2>
+    <div class="order-container">
+        <cdk-virtual-scroll-viewport itemSize="150"  class="scroll-container">
+        <div *cdkVirtualFor="let orders of orders" >
+         
+        <div class="card-container">
+            <div class="image-restaurant">
+                <div class="image">
+                    <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,c_fill/{{orders.imageId}}">
+                </div>
+                <div class="restaurant-item">
+                    <h2>{{orders.restaurant}}</h2>
+                    <p class="location">{{orders.location}}</p>
+                    <p class="id">order #{{orders.id}}</p>
+                    <div class="item" >
+                        <div *ngFor="let items of orders.orderItems">
+                        <p>{{items.name}} x {{items.quantity}}</p>
+                    </div>
+                </div>
+                </div>
+                <div></div>     
+            </div>
+            <div class="order-details">
+                <p class="order-date">Ordered on {{orders.orderDateTime}}</p>
+                <p class="order-total"><span>Total:</span> ${{orders.price.total}}</p>
+                <div class="buttons">
+                    <button (click)="onViewDetails(orders)">View Details</button>
+                    <button>Track Order</button>
+                    <button>Cancel Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </cdk-virtual-scroll-viewport>
+    </div>
+    <div class="modal" [ngClass]="{display: viewDetails==false}"  >
+        <div class="modal1">
+            <div class="order-display">
+                <div class="order-d">
+                    <p>Order Details</p>
+                    <p (click)="close()">X</p>
+                </div>
+                <div class="individual-order-details">
+                 <img *ngIf="viewDetails==true" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,c_fill/{{order.imageId}}">
+                <div class="item-details">
+                 <div class="details">
+                    <p class="name">{{order.restaurant}}</p>
+                    <p class="location">{{order.location}}</p>
+                    <p class="id">order #{{order.id}}</p>
+                    <div class="item" >
+                        <div *ngFor="let items of order.orderItems">
+                        <p>{{items.name}} x {{items.quantity}}</p>
+                    </div>
+                    <p class="status">Status: {{order.status}}</p>
+                 </div>
+                </div>
+                <div class="price-details">
+                    <p class="order-date">Ordered on {{order.orderDateTime}}</p>
+                    <p class="order-total"><span>subTotal:</span> ${{subTotal}}</p>
+                    <p class="order-total"><span>packingCost:</span> ${{packingCost}}</p>
+                    <p class="order-total"><span>Discount:</span> ${{discount}}</p>
+                    <p class="order-total"><span>Total:</span> ${{orderPrice}}</p>
+                </div>
+            </div>
+            </div> 
+        </div> 
+    </div>
+</div>
+
