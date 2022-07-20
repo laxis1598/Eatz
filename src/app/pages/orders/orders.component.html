@@ -1,0 +1,85 @@
+<!--orders main container-->
+<div class="order-main-container">
+    <h2 class="your-orders">Your Orders</h2>
+    <!--orders container contains all the order-->
+    <div class="order-container">
+        <p *ngIf="isFetching">Loading....</p>
+        <!--scroll container for updating the dom on scroll-->
+        <cdk-virtual-scroll-viewport itemSize="150"  class="scroll-container">
+            <div *cdkVirtualFor="let orders of orders" >  
+                <!--order card container for every order-->
+                <div class="order-card-container">
+                    <div class="image-restaurant">
+                        <!--ordered item image-->
+                        <div class="image">
+                            <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,c_fill/{{orders.imageId}}">
+                        </div>
+                        <!--order details including restaurant,location,order id & ordered item-->
+                        <div class="restaurant-item">
+                            <h2>{{orders.restaurant}}</h2>
+                            <p class="location">{{orders.location}}</p>
+                            <p class="order-id">order #{{orders.id}}</p>
+                            <div class="item" >
+                                <div *ngFor="let items of orders.orderItems">
+                                <p>{{items.name}} x {{items.quantity}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--ordered detais including order date,total & buttons-->
+                    <div class="order-details">
+                        <p class="order-date">Ordered on {{orders.orderDateTime}}</p>
+                        <p class="order-total"><span>Total:</span> ${{orders.price.total}}</p>
+                        <div class="buttons">
+                            <button (click)="onViewDetails(orders)">{{viewDetailsButton}}</button>
+                            <button>{{trackOrder}}</button>
+                            <button>{{cancelOrder}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </cdk-virtual-scroll-viewport>
+    <!--see more content-->
+    <p class="see-more">See More</p>
+</div>
+<!--modal display conent on clicking the view details-->
+<div class="orderdetails-modal" [ngClass]="{display: viewDetails==false}"  >
+    <div class="order-modal-display">
+        <div class="order-display">
+            <div class="order-details-x">
+                <p>Order Details</p>
+                <p (click)="close()">X</p>
+            </div>
+            <!--individual order details-->
+            <div class="individual-order-details">
+                <!--order item image-->
+                <img *ngIf="viewDetails==true" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,c_fill/{{order.imageId}}">
+                <!--order item details-->
+                <div class="item-details">
+                    <!--order details including restaurant,location,order id & item-->
+                    <div class="details">
+                        <p class="name">{{order.restaurant}}</p>
+                        <p class="location">{{order.location}}</p>
+                        <p class="id">order #{{order.id}}</p>
+                        <!--ordered items-->
+                        <div class="item" >
+                            <div *ngFor="let items of order.orderItems">
+                            <p>{{items.name}} x {{items.quantity}}</p>
+                        </div>
+                            <p class="status">Status: {{order.status}}</p>
+                        </div>
+                    </div>
+                    <!--order details including order date & all the cost-->
+                    <div class="price-details">
+                            <p class="order-date">Ordered on {{order.orderDateTime}}</p>
+                            <p class="order-total"><span>subTotal:</span> ${{subTotal}}</p>
+                            <p class="order-total"><span>packingCost:</span> ${{packingCost}}</p>
+                            <p class="order-total"><span>Discount:</span> ${{discount}}</p>
+                            <p class="order-total"><span>Total:</span> ${{orderPrice}}</p>
+                    </div>
+                </div>
+            </div> 
+        </div> 
+    </div>
+</div>
+

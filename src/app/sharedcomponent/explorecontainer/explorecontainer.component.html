@@ -1,0 +1,28 @@
+<!--explore container-->
+<div class="explore-container">
+    <!--explore card container-->
+    <div class="explore-card-container">
+        <!--explore container content details-->
+        <div class="explore-content">
+            <h1>Explore Our Foods</h1>
+            <p>Lorem ipsum is a placeholder text commonly used to demonstrate the visual 
+                form of a document or a typeface without relying on meaningful content</p>
+        </div>
+        <!--cards for all the restaurants-->
+        <div class="explore-cards" > 
+            <!--explore card for individual restaurant-->
+            <div class="explore-card" *ngFor="let count of count">
+                <img src="https://i.pinimg.com/originals/ce/b5/35/ceb53556c33d9a2b81c19a79e5dd7c11.jpg">
+                <!--item and price details-->
+                <div class="item-price">
+                    <p>Choclate Milk Shake</p>
+                    <p class="price">$100.50</p>
+                </div>
+                <!--description details-->
+                <p class="description">Lorem ipsum is a placeholder text commonly used </p>
+            </div>
+        </div>
+        <!--social media container styling-->
+        <app-socialmedia class="app-socialmedia"></app-socialmedia>
+    </div>   
+</div>

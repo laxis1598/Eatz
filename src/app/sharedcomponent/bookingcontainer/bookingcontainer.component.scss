@@ -1,0 +1,73 @@
+/*booking container styling*/
+.booking-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    padding:12.5% 0;
+    background-color: #FFEDDE;
+    .booking {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width:70%;
+        height: 450px;
+        background-color: #fff;
+        /*bar styling*/
+        .bar{
+            width:100px;
+            height: 10px;
+            margin-top: 75px;
+            background-color: #FE043C;
+        }
+        /*h1 styling*/
+        h1{
+            margin-top: 30px;
+            font-size: 2rem;
+            font-family: poppins-Bold;
+            color: #2e266f;
+            opacity: 0.9;
+        }
+    }
+    /*search bar styling*/
+    .search {
+            display: flex;
+            align-items: center;
+            margin: 50px auto ;
+            width: 575px;
+            height: 80px;
+            background-color: #fff;
+            box-shadow: 1px 1px 5px 5px rgb(254, 4, 60, .075);
+            /*input styling*/
+            input {
+                width:75%;
+                height:50px;
+                padding: 5px 50px;
+                border: none;
+                font-size: 1.3rem;
+                box-sizing: border-box;
+                outline-width: 0;
+                
+            }
+            /*button styling*/
+            button {
+                width:25%;
+                height:50px;
+                margin-right: 12.5px;
+                background-color: #FE043C;
+                border: none;
+                font-size: 1.5rem;
+                font-family: poppins-medium;
+                color: #fff;
+            }
+    }
+    /*date-time styling*/
+    .date-time {
+        display: flex;
+        justify-content: space-between;
+        width:425px;
+        margin: 20px auto;
+        font-family: poppins-Bold;
+        color: #2e266f;
+    }
+}

@@ -1,0 +1,90 @@
+/*explore container styling*/
+.explore-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /*explore card container styling */
+    .explore-card-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width:80%;
+        margin: 100px auto;
+        /*explore container - content styling*/
+        .explore-content
+        {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            h1 {
+                margin-bottom: 50px;
+                font-size: 2rem;
+                font-family: poppins-Bold;
+                color: #2e266f;
+                opacity: 0.8;
+            }
+            p{
+                width:50%;
+                font-family: poppins-regular;
+                text-align: center;
+                color: #2e266f;
+                opacity: 0.6;
+            }
+        }
+        /*styling for card container include all the restaurant-card*/
+        .explore-cards{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width:100%;
+            height: 100%;
+            margin-top: 50px;
+            /*individual restaurant card styling*/
+            .explore-card{
+                width:350px;
+                height:400px;
+                margin: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                img {
+                    width:100%;
+                    height:65%;
+                    border-radius: 10px 10px 0 0;
+                }
+                /*item and price details styling*/
+                .item-price {
+                    display: flex;
+                    justify-content: space-between;
+                    width:80%;
+                    margin: 20px auto;
+                    color: #2e266f;
+                    p{
+                        opacity: 0.8;
+                        font-family: poppins-medium;
+                    }
+                    .price {
+                        color: #FE043C;
+                        font-family: georgia;
+                        font-weight: bolder;
+                    }
+                }
+                /*description details styling*/
+                .description{
+                    width: 80%;
+                    margin: 30px auto;
+                    font-size: 1rem;
+                    color:  #AEB2B4;
+                    opacity: 0.8;
+                }
+            }     
+        }
+        /*social media container styling*/
+        .app-socialmedia {
+            display: flex;
+            justify-content: space-between;
+            margin:100px 100px 0 0;
+            width: 90%;
+        }
+        
+    }
+}

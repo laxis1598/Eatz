@@ -1,0 +1,50 @@
+<!--Header Component-->
+<div class="header">
+  <div class="header-content">
+  <!--header part 1 -->
+    <div class="header-part1">
+      <!--App Name-->
+        <div class="app-name">
+          <a routerLink="/">
+            <h1>{{appTitle}}</h1>
+          </a>
+        </div>
+        <!--App Navigation options-->
+        <div class="app-navigation-details">
+          <a routerLink="/home">
+            <p>{{homeNavigation}}</p>
+          </a>
+          <a routerLink="/offers">
+            <p>{{offersNavigation}}</p>
+          </a>
+          <a routerLink="/restaurants">
+            <p>{{restaurantsnavigation}}</p>
+          </a>
+          <!--navigation shown when user login-->
+          <a routerLink="/orders">
+            <p *ngIf="LoginValid">{{ordersNavigation}}</p>
+          </a>
+          <p *ngIf="LoginValid">{{accountsNavigation}}</p>
+        </div>
+    </div>
+    <!--header part 2 - cart,login,logout-->
+    <div class="cart-login-logout">
+      <p class="cartitem" *ngIf="LoginValid">Cart
+        <sup>
+          <span *ngIf="cartitem!=0">{{cartitem}}</span>
+        </sup>
+        <span>
+          <i class="fa fa-caret-down"></i>
+        </span>
+      </p>
+      <!--login-->
+      <a routerLink="/login">
+        <p class="login-logout" *ngIf="!LoginValid" >Login</p>
+      </a>
+      <!--logout-->
+      <a routerLink="/login">
+        <p class="login-logout" *ngIf="LoginValid" (click)="onLogOut()">Logout</p>
+      </a>
+    </div>
+  </div>
+</div>

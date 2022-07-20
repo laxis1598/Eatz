@@ -1,0 +1,44 @@
+
+<!--offers container-->
+<div class="offers-container">
+    <!--offers title-->
+    <div class="offer">
+        <h1>Offers</h1>
+    </div>
+    <!--restaurant-offer-container-->
+    <div class="restaurant-offer-container">
+        <p *ngIf="isFetching">Loading.....</p>
+        <!--container containing all the restaurant with offers-->
+        <div class="offer-container" >
+            <div *ngFor="let offer of offer" >
+                <!--restaurant offers card container--> 
+                <div class="offers-card-container" [ngClass]="{unavailable:offer.available==false}"> 
+                    <!--restaurant image-->
+                    <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,c_fill/{{offer.cloudinaryImageId}}">
+                    <!--restaurant and offer details-->
+                    <div class="offers-card-bottom">
+                        <div class="dot-mark-restaurant">
+                            <div class="dot-mark"></div>
+                            <!--item name and restaurant name-->
+                            <div class="item-name-restaurant">
+                                <p>{{offer.name}}</p>
+                                <h2>{{offer.restaurant}}</h2>
+                            </div>
+                        </div>
+                        <!--price detail-->
+                        <div class="price">
+                            <p class="discount-price">${{offer.price.discountPrice}}</p>
+                            <p class="cost-price">${{offer.price.costPrice}}</p>
+                        </div>
+                    </div>
+                    <!--delivery detail-->
+                    <p class="delivery">Delivery in {{offer.deliveryTimeInMins}} mins</p>
+                    <!--add to cart button-->
+                    <button (click)="addtocart(offer)">{{cardButton}}</button>
+                </div>
+            </div>
+        </div>
+        <!--social media container-->
+        <app-socialmedia *ngIf="!isFetching" class="app-socialmedia"></app-socialmedia>
+    </div>
+</div>

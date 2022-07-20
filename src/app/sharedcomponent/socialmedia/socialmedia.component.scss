@@ -1,0 +1,17 @@
+/*social media container styling*/
+.social-media {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0 50px 0;
+    width: 100%;
+    font-size: 0.9rem;
+    /*social media icon styling*/
+    i{
+        margin-left: 30px;
+    }
+    /*copyright part styling*/
+    .copyright {
+        color: #AEB2B4;
+        opacity: 0.8;
+    }
+}

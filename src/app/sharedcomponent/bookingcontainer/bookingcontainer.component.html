@@ -1,0 +1,41 @@
+<!-- booking container html component  -->
+<div class="booking-container">
+    <div class="booking">
+        <!--bar content -->
+        <div class="bar"></div>
+        <!--booking title-->
+        <h1>advanced booking</h1>
+        <!--search bar content-->
+        <div>
+            <form (ngSubmit)="onBooking(booking)" class="search" #booking="ngForm">
+                <input type='text' name="searchRestaurant" placeholder="search restaurant" ngModel>
+                <button type="submit" >{{cardButton}}</button>
+            </form>
+        </div>
+        <!--input for booking date,time & no of guest-->
+        <div class="date-time">
+            <!--date content-->
+            <div>
+                <p>Date</p>
+                <input type="date" id="date" name="date" min="{{date}}" [(ngModel)]="selecteddate">
+            </div>
+            <!--time content-->
+            <div>
+                <p>Time</p>
+                <input type="time" id="time" name="time" value="00:00"  [(ngModel)]="selectedTime">
+            </div>
+            <!--guest content-->
+            <div>
+                <p>Guests</p>
+                <select name="guest" [(ngModel)]="selectedPerson" >
+                    <option value="1" selected>1 people</option>
+                    <option value="2">2 people</option>
+                    <option value="3">3 people</option>
+                    <option value="4">4 people</option>
+                    <option value="5">5 people</option>
+                    <option value="6">6 people</option>
+                </select>
+            </div>
+        </div>
+    </div>   
+</div>

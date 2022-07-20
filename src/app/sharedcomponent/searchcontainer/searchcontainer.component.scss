@@ -1,0 +1,97 @@
+/*container 1 -card container styling*/
+.search-card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 95%;
+    margin: 0 auto;
+    /*food discover content and search bar styling*/
+    .food-discover{
+        margin: 175px 20px 0 0;
+        width: 650px;
+        font-size: 3.8rem;
+        font-family: poppins-Bold;
+        color:#2e266f;
+        .food-discover-content {
+            line-height: 0.8;
+        }
+        h1{
+            font-size: 10rem;
+            opacity: 0.1;
+        }
+        h2{
+            line-height: 1.1;
+        }
+        /*search bar styling*/
+        .search-bar {
+            width:525px;
+            height: 80px;
+            margin-top: 30px;
+            background-color: #fff;
+        }
+        /*restaurant search form styling*/
+        .restaurant-search {
+            display: flex;
+            align-items: center;
+            input::placeholder {
+                color:#2e266f;
+                opacity: 0.8;
+            }
+            /*input styling*/
+            input {
+                width:70%;
+                height:65px;
+                padding: 7.5px 20px 7.5px 40px;
+                border: none;
+                font-size: 1.4rem;
+                font-family: poppins-regular;
+                box-sizing: border-box; 
+                outline-width: 0;      
+            }
+            /*button styling*/
+            button {
+                width:33%;
+                height:65px;
+                margin: 7.5px;
+                background-color: #FE043C;
+                border: none;
+                font-size: 2rem;
+                font-family: poppins-medium;
+                color: #fff;
+            }
+        }
+    }
+    /*image styling*/
+    img {
+        width:750px;
+        height:75%;
+        margin: 225px 0 75px 25px;
+    }
+}
+
+/*location styling*/
+.location {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    color: #fff;
+    font-family: poppins-Bold;
+    width: 300px;
+    padding: 20px;
+    background-color: red;
+    border-radius: 0 100px 100px 0;
+    i{
+        font-size: 3rem;
+    }
+    p{
+        margin: 0 20px;
+        font-size: 2rem;
+    }
+}
+
+/*location styling for home page*/ 
+.home {
+    margin-left: 2.5%;
+    font-family: poppins-medium;
+    background-color: transparent;
+}

@@ -1,0 +1,46 @@
+
+<!--search container-->
+<app-searchcontainer></app-searchcontainer>
+
+<!--landing page top restaurants part-->
+<div class="landingpage-top-restaurants">
+    <!--landing page top restaurants content-->
+    <div class="toprestaurant-content">
+        <div class="bar"></div>
+        <div  class="top-restaurant">Some top restaurant for dining out or in!</div>
+        <p>Lorem ipsum is a placeholder text commonly used to demonstrate the visual form 
+           of a document or a typeface without relying on meaningful content. 
+        </p>
+    </div>
+    <!--landing page top restaurants image with details-->
+    <div class="toprestaurant-card">
+        <div class="image" *ngFor="let toprestaurant of toprestaurants">
+            <img src={{toprestaurant.imageurl}}>
+            <div class="content">
+                <h1>{{toprestaurant.name}}</h1>
+                <p>{{toprestaurant.description}} </p>
+                <div class="location">
+                    <div class="map">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <p>{{location}}</p>
+                    </div>
+                    <button>{{cardButton}}
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!--see more content-->
+        <div class="see-more"> 
+            <div class="arrow">
+                <i class="fa fa-angle-right"></i>
+            </div>
+            <p>see more</p>
+        </div>
+    </div>
+</div>
+
+<!--booking container -->
+<app-bookingcontainer></app-bookingcontainer>
+<!--explorecontainer-->
+<app-explorecontainer></app-explorecontainer>

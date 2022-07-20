@@ -1,0 +1,103 @@
+.header-part1{
+    color: #F98169;
+}
+.restaurant-offer-container,.offer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*offer title styling*/
+.offer h1 {
+    width:83%;
+    margin: 125px auto 0;
+    font-family: poppins-Bold;
+    font-size: 1.2rem;
+}
+/*restaurant offer container styling*/
+.restaurant-offer-container{
+    .offer-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 25px auto;
+        .offers-card-container {
+            width:450px;
+            height: 450px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            img {
+                width:100%;
+                height:65%;
+                border-radius: 10px 10px 0 0;
+            }
+            .offers-card-bottom {
+                display: flex;
+                justify-content: space-between;
+                height: 65px;
+                margin-bottom: 10px;
+                .dot-mark-restaurant {
+                    display: flex;
+                    align-items: center;
+                    margin: 0 10px;
+                    font-family: poppins-regular;
+                }
+                .dot-mark {
+                    width:10px;
+                    height: 10px;
+                    margin-bottom: 5px;
+                    background-color: #FE043C;
+                    border-radius: 50%;
+                }
+                .price {
+                    margin: 20px;
+                }
+                .cost-price {
+                    text-decoration: line-through;
+                    opacity: 0.7;
+                    font-family: georgia;
+                }
+                .discount-price {
+                    color:#F98169;
+                    font-family: georgia;
+                    font-size: 1.4rem;
+                }
+            }
+            .item-name-restaurant {
+                margin: 20px 20px 0 5px;
+                color: #0c0c5b;
+                h2{
+                    font-family: poppins-medium;
+                }
+            }
+            .delivery {
+                margin: 0 25px;
+                font-size: 0.7rem;
+                font-family: poppins-regular;
+                opacity: 0.8;
+            }
+            button {
+                margin: 10px 0 5px 310px;
+                padding: 7.5px 20px;
+                font-family: poppins-regular;
+                background-color: #FE043C;
+                border: none;
+                color: #fff;
+                
+            }
+        }
+        /*styling for restaurant card where offer is not available*/
+        .unavailable {
+            opacity:0.5;
+            button {
+                cursor: not-allowed;
+            }
+        }  
+    }
+    /*social media container styling*/
+    .app-socialmedia {
+        width:70%;
+    } 
+}
+
+
+

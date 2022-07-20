@@ -1,0 +1,227 @@
+/*orders main container styling*/
+.order-main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /*your orders- title styling*/
+    .your-orders {
+        width:82.5%;
+        margin:125px auto 25px;
+        font-family: poppins-medium;
+        font-size: 1.5rem;
+    }
+    /*order container styling*/
+    .order-container {
+        width:82.5%;
+        /*scroll container styling*/
+        .scroll-container{
+            height:800px;
+            overflow: auto;
+        }
+        /*order card container styling*/
+        .order-card-container {
+            display: flex;
+            justify-content: space-between;
+            width:100%;
+            height:175px;
+            margin: 20px 0;
+            background-color: #FFEDDE;
+            border-radius: 10px;
+            /*image & restaurant display styling*/
+            .image-restaurant {
+                display: flex;
+            }
+            /*ordered item image styling*/
+            img {
+                width:150px;
+                height: 125px;
+                margin: 25px;
+                border-radius: 10px;
+            }
+            /*restaurant & item details styling*/
+            .restaurant-item {
+                margin: 25px;
+                opacity: 0.9;
+                h2{
+                    font-family: poppins-medium;
+                    font-size: 1.5rem; 
+                    color: #222629;
+                    opacity: 0.9;
+                }
+                .location {
+                    margin-top: 5px;
+                    font-family: poppins-medium;
+                    font-size: 0.9rem;
+                }
+                .order-id {
+                    margin-top: 15px;
+                    font-size: 0.8rem;
+                    opacity: 0.8;
+                }
+                /*order item styling*/
+                .item {
+                    margin-top: 25px;
+                    font-size: 0.8rem;
+                    height:40px;
+                    color: #605e5b;
+                    overflow: hidden;
+                    p{
+                        margin-top: 5px;
+                    }
+                }
+            }
+            /*order details including order date,total & buttons styling*/
+            .order-details {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                margin: 25px;
+                color: #605e5b;
+                /*order date styling*/
+                .order-date {
+                    font-size: 1rem;
+                    opacity: 0.9;
+                }
+                /*order total styling*/
+                .order-total {
+                    margin-top:5px;
+                    font-size: 0.9rem;
+                    opacity: 0.9;
+                    span{
+                        font-family: poppins-medium;
+                    }
+                }
+                /*buttons styling*/
+                .buttons {
+                    margin: 50px 10px 0 0 ;
+                    button {
+                        margin:5px 5px 0 0;
+                        padding: 7.5px 20px;
+                        background-color: #FE043C;
+                        border: none;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    /*see more feature styling*/
+    .see-more {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin: 20px 0;
+        font-size: 1.3rem;
+        font-family: poppins-Bold;
+        color: #FE043C;
+    }
+}
+
+
+
+
+
+
+
+/*order details modal styling*/
+.orderdetails-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.5);
+    /*order modal display styling*/
+    .order-modal-display{
+        position: relative;
+        top: 10%;
+        display: flex;
+        justify-content: space-between;
+        padding: 25px;
+        width: 70%;
+        height: 50%;
+        margin: 100px auto;
+        cursor: pointer;
+        background-color: #fff;
+        /*individual order display styling*/
+        .order-display {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            .order-details-x{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 50px;
+                font-size: 1.2rem;
+                font-family: poppins-Bold;
+            }
+        }
+    }
+    /*individual order details styling*/
+    .individual-order-details {
+        display: flex;
+        justify-content:space-between;
+        overflow: auto;
+        /*item details styling*/
+        .item-details {
+            display: flex;
+            justify-content: space-between;
+            width:50%;
+            flex-wrap: wrap;
+            overflow: auto;
+        } 
+        img {
+            width:300px;
+            height: 300px;
+            margin-right: 50px;
+        }
+        .location {
+            margin-top: 5px;
+            font-family: poppins-medium;
+            font-size: 1.2rem;
+        }
+        .details {
+            margin-right: 50px;
+        }
+        .name{
+            font-size: 2rem;
+            font-family: poppins-Bold;
+            color:  #202064;
+            margin-bottom: 20px;
+        }
+        .id {
+            margin-top: 10px;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        .item {
+            font-size: 1rem;
+            overflow: hidden;
+            p{
+                margin-top: 20px;
+            }
+        }
+        /*order date styling*/
+        .order-date {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+        /*order total styling*/
+        .order-total {
+            margin-top:20px;
+            font-size: 1rem;
+            opacity: 0.8;
+            span{
+                font-family: poppins-medium;
+            }
+        }
+    }   
+}
+/*display modal styling*/
+.display {
+    display:none;
+}
+
+
