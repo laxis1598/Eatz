@@ -12,9 +12,9 @@
         </div>
     </div>
     <!--restaurants container contains all restaurant details in card format-->
-    <div class="restaurants-container" *ngIf="filteredrestaurant=='' && noresult==false" >
+    <div class="restaurants-container" *ngIf="noresult==false" >
         <p *ngIf="isFetching">Loading...</p>
-        <div *ngFor="let restaurant of restaurant" >
+        <div *ngFor="let restaurant of restaurantDisplay" >
             <!--individual restaurant card container-->
             <div class="restaurant-card-container" [ngClass]="{unavailable:restaurant.open==false}" >
                 <!--restaurant item image-->
@@ -38,32 +38,7 @@
             </div>
         </div>
     </div>
-    <!--container for showing filtered result-->
-    <div class="restaurants-container" >
-        <div *ngFor="let restaurant of filteredrestaurant " >
-            <!--restaurant card container for filtered restaurants-->
-            <div class="restaurant-card-container" [ngClass]="{unavailable:restaurant.open==false}" >
-                <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,c_fill/{{restaurant.cloudinaryImageId}}">
-                <!--card bottom content - restaurant details-->
-                <div class="card-bottom">
-                    <!--restaurant and address details-->
-                    <div class="restaurant-address">
-                        <p>{{restaurant.name}}</p>
-                        <h2>Mount Road</h2>
-                        <p class="cuisine">{{restaurant.cuisine}}</p>
-                    </div>
-                    <!--restaurant and delivery details-->
-                    <div class="rating-delivery" >
-                        <p>Rating:{{restaurant.rating}}</p>
-                        <p class="delivery">Delivery in {{restaurant.deliveryTimeInMins}} mins</p>
-                        <p>${{restaurant.price.costForTwo}} For Two</p>
-                    </div>
-                </div>
-                <!--see more button-->
-                <button>See More</button>
-            </div>
-        </div>
-    </div>
+
     <!--no results found content-->
     <div class="noresult" *ngIf="noresult==true">
         <p >No Result Found</p>

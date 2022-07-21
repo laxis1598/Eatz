@@ -8,16 +8,17 @@
                <img src="../../assets/images/LoginImage.png" alter="LoginImage">
           </div>
           <!--login form-->
-          <form class="login-form" (ngSubmit)="onSubmit(form)" #form="ngForm">
+          <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                <h3>Login into Eatz</h3>
                <!--username part-->
                <label for="username"></label>
-               <input type="text" name="username" placeholder="username" ngModel>
-               <p *ngIf="isNameEmpty">Please enter valid username</p>
+               <input type="text" name="username" formControlName="username" placeholder="username" ngModel>
+               <p *ngIf="isNameEmpty">{{usernameEmpty}}</p>
                <!--password part-->
                <label for="password"></label>
-               <input type="password" name="password" placeholder="password" ngModel>
-               <p *ngIf="isPasswordEmpty">Please enter valid password</p>
+               <input type="password" name="password" formControlName="password" placeholder="password" ngModel>
+               <p *ngIf="isPasswordEmpty">{{passwordEmpty}}</p>
+               <p *ngIf="!valid && !isPasswordEmpty && !isNameEmpty">{{invalidCredentials}}</p>
                <!--login button-->
                <button type="submit">{{loginButton}}</button>
           </form>

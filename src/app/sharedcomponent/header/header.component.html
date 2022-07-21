@@ -30,10 +30,10 @@
     <!--header part 2 - cart,login,logout-->
     <div class="cart-login-logout">
       <p class="cartitem" *ngIf="LoginValid">Cart
-        <sup>
-          <span *ngIf="cartitem!=0">{{cartitem}}</span>
-        </sup>
-        <span>
+       
+          <span class="cart-count" *ngIf="cartitem!=0">{{cartitem}}</span>
+     
+        <span class="drop-down">
           <i class="fa fa-caret-down"></i>
         </span>
       </p>

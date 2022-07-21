@@ -19,5 +19,10 @@ export class Constant {
     public static accountsNavigation:string="Accounts";
     public static cartNavigation:string="Cart";
     public static logoutNavigation:string="Logout";
-
+    public static usernameEmpty:string="Please enter the username";
+    public static passwordEmpty:string="Please enter the Password";
+    public static invalidCredentials:string="Please enter valid Username & Password";
+    public static exploreDescription:string="Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content"
+    public static exploreTitle:string="Explore Our Foods";
+    public static exploreCardDescription:string="Lorem ipsum is a placeholder text commonly used";
 }

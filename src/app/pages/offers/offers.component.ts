@@ -19,12 +19,11 @@ export class OffersComponent implements OnInit {
   
    //constructor
   constructor(private http:HttpClient,private common:CommonService) { 
-    this.fetchOffers();
   }
 
 
   ngOnInit(): void {
-     
+    this.fetchOffers();
   }
 
   //logic for fetching the offers

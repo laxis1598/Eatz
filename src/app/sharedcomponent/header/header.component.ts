@@ -12,8 +12,8 @@ import { Constant } from 'src/app/constants/constant.component';
 export class HeaderComponent implements OnInit,OnDestroy {
 
   //subscriptions
-  loginsubscription:Subscription;
-  cartsubscription:Subscription;
+  loginsubscription!: Subscription;
+  cartsubscription!: Subscription;
 
   //initial declarations
   LoginValid:string|null=localStorage.getItem("login");
@@ -27,40 +27,39 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
 
   constructor(private loggingService:LoggingService,private common:CommonService) { 
-
-    //logging service subscribe for checking the login status
-   this.loginsubscription= this.loggingService.loginValid.subscribe(
-      (loginStatus:boolean)=>{
-        if(loginStatus)
-        {
-          localStorage.setItem("login","true")
-          this.LoginValid=localStorage.getItem("login");
-          this.loggingService.login=true;
-        }
-        else
-        {
-          localStorage.setItem("login","");
-          this.LoginValid=localStorage.getItem("login");
-        }
-    })
-
-    this.cartitem= this.common.count;
-
-    //common service subscribe for showing cart item-count
-    this.cartsubscription=this.common.cart.subscribe(
-      (cart:boolean)=>{
-        if(cart)
-        {
-          this.cartitem=this.common.count;
-        }
-    })
   }
-  //end of constructor
+
 
   
   //ngOnInit
   ngOnInit(): void {
-  }
+     //logging service subscribe for checking the login status
+   this.loginsubscription= this.loggingService.loginValid.subscribe(
+    (loginStatus:boolean)=>{
+      if(loginStatus)
+      {
+        localStorage.setItem("login","true")
+        this.LoginValid=localStorage.getItem("login");
+        this.loggingService.login=true;
+      }
+      else
+      {
+        localStorage.setItem("login","");
+        this.LoginValid=localStorage.getItem("login");
+      }
+  })
+
+  this.cartitem= this.common.count;
+
+  //common service subscribe for showing cart item-count
+  this.cartsubscription=this.common.cart.subscribe(
+    (cart:boolean)=>{
+      if(cart)
+      {
+        this.cartitem=this.common.count;
+      }
+  })
+}
 
   //onDestroy 
   ngOnDestroy(): void {
@@ -73,6 +72,7 @@ export class HeaderComponent implements OnInit,OnDestroy {
   //logout logic
   onLogOut() {
     this.loggingService.loginValid.emit(false);
+    this.loggingService.login=false;
   }
   
 }

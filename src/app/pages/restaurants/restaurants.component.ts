@@ -14,7 +14,7 @@ export class RestaurantsComponent implements OnInit {
 
   //initial declarations
   restaurant:any=[];
-  filteredrestaurant:any=[];
+  restaurantDisplay:any=[];
   restaurantname:string='';
   rating:Array<number>=[];
   i:number=0;
@@ -25,16 +25,18 @@ export class RestaurantsComponent implements OnInit {
 
   //constructor
   constructor(private http:HttpClient,private common:CommonService) { 
+  }
+
+  //ngoninit
+  ngOnInit(): void {
     this.restaurant=this.common.restaurant;
     if(this.common.restaurantname)
     {
       this.onSearch(this.common.restaurantname);
     }
-  }
-
-  //ngoninit
-  ngOnInit(): void {
-     this.fetchRestaurants();
+    else{
+      this.fetchRestaurants();
+    }
   }
 
   //logic for fetching restaurants 
@@ -45,6 +47,7 @@ export class RestaurantsComponent implements OnInit {
       this.isFetching=false;
       this.restaurant=restaurant;
       this.restaurant=this.restaurant.result;
+      this.restaurantDisplay=this.restaurant;
       //random rating
       for(let i=0;i<this.restaurant.length;i++)
       {
@@ -68,7 +71,7 @@ export class RestaurantsComponent implements OnInit {
   //logic for fetching the filtered restaurants when searched from home page
   onSearch(name:string)
   {
-    this.filteredrestaurant=[];
+    this.restaurantDisplay=[];
     this.restaurantname=name;
     if(name)
     {
@@ -76,11 +79,10 @@ export class RestaurantsComponent implements OnInit {
       {
          if((restaurant.name.toLowerCase()).includes(this.restaurantname.toLowerCase()))
          {
-          
-          this.filteredrestaurant.push(restaurant);
+          this.restaurantDisplay.push(restaurant);
          }
       }
-      if(this.filteredrestaurant=='')
+      if(this.restaurantDisplay=='')
       {
         this.noresult=true;
       }
@@ -89,6 +91,7 @@ export class RestaurantsComponent implements OnInit {
       }
     }
     else {
+      this.restaurantDisplay=this.restaurant;
       this.noresult=false;
     }
     this.common.restaurantname='';

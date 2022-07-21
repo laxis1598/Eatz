@@ -14,25 +14,25 @@ import { Constant } from 'src/app/constants/constant.component';
 })
 export class LandingpageComponent implements OnInit,OnDestroy {
 
-  subscription:Subscription;
-
-  cardButton:string=Constant.toprestaurantCardButton;
+  
 
   //constructor
   constructor(private common:CommonService,private router:Router,private http:HttpClient) {
-    this.subscription=this.common.locationname.subscribe(location=>{
-    this.location=this.common.location;
-    }) 
   }
 
   //initial declarations
+  private subscription!: Subscription;
   location:string=this.common.location;
-
+  cardButton:string=Constant.toprestaurantCardButton;
   //toprestaurants array fetching from common service
   toprestaurants:Array<any>=this.common.toprestaurants;
+
   
 
   ngOnInit(): void {
+    this.subscription=this.common.locationname.subscribe(location=>{
+      this.location=this.common.location;
+      }) 
   }
  
   ngOnDestroy(): void {
