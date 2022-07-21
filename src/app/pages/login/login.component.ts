@@ -36,10 +36,42 @@ export class LoginComponent implements OnInit {
   }
 
   //logic check logic
-  onSubmit () {
+  onSubmit (form:NgForm) {
     //input empty check
-    console.log(this.loginForm);
-}
-
+    if(form.value.username && form.value.password)
+    {
+      this.isNameEmpty=false;
+      this.isPasswordEmpty=false;
+      //username,password-combination  check 
+      if((form.value.username==this.loggingService.username1 && form.value.password==this.loggingService.password1) ||  
+      (form.value.username==this.loggingService.username2 && form.value.password==this.loggingService.password2) )
+      {
+        this.loggingService.loginValid.emit(true);
+        localStorage.setItem("login","true");
+        this.router.navigateByUrl("/home");
+        this.valid=true;
+        form.reset();
+      }
+      else {
+        this.valid=false;
+      }
+      
+    }
+    //password empty check
+    else if(form.value.username){
+      this.isNameEmpty=false;
+      this.isPasswordEmpty=true;
+    }
+    //username empty check
+    else if(form.value.password) {
+      this.isNameEmpty=true;
+      this.isPasswordEmpty=false;
+    }
+    else
+    {
+      this.isNameEmpty=true;
+      this.isPasswordEmpty=true;
+    }
+  } 
 }
 
